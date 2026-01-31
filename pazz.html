@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pazz The Cafe - Best Place to Enjoy Food, Music & Vibes in Ahmedabad. Open till 4 AM. Dine-in, Drive-through & Delivery available.">
+    <meta name="keywords" content="cafe, coffee, late night, Ahmedabad, food, pizza, shakes, tea">
+    <title>Pazz The Cafe | Best Late-Night Cafe in Ahmedabad</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --coffee-dark: #1A0E0A;
+            --coffee-brown: #4A2C2A;
+            --coffee-medium: #8B6F47;
+            --coffee-light: #C9A86A;
+            --cream: #F2E8CF;
+            --cream-light: #FFF9F0;
+            --neon-orange: #FF6B35;
+            --neon-pink: #FF006E;
+            --neon-yellow: #FFD23F;
+            --warm-white: #FFFEF9;
+            --deep-brown: #3D2817;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--coffee-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--warm-white);
+        }
+        
+        /* Floating Navigation */
+        .floating-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 14, 10, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .floating-nav.visible {
+            transform: translateY(0);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            color: var(--neon-orange);
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--neon-orange);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(26, 14, 10, 0.95) 0%, rgba(58, 34, 24, 0.92) 100%),
+                        radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(201, 168, 106, 0.1) 0%, transparent 40%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%231A0E0A" width="1920" height="1080"/><circle cx="300" cy="200" r="100" fill="%238B6F47" opacity="0.08"/><circle cx="1500" cy="600" r="150" fill="%23C9A86A" opacity="0.06"/><circle cx="600" cy="800" r="80" fill="%23FF6B35" opacity="0.1"/><line x1="0" y1="540" x2="1920" y2="540" stroke="%23F2E8CF" opacity="0.1" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255, 107, 53, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(255, 210, 63, 0.15) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(201, 168, 106, 0.1) 0%, transparent 50%);
+            animation: heroGlow 10s ease-in-out infinite;
+        }
+        
+        @keyframes heroGlow {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        /* Decorative Elements */
+        .hero-decoration {
+            position: absolute;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .hero-decoration:nth-child(1) {
+            width: 500px;
+            height: 500px;
+            top: -250px;
+            left: -250px;
+            animation: rotate 30s linear infinite;
+        }
+        
+        .hero-decoration:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            right: -200px;
+            animation: rotate 25s linear infinite reverse;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+            max-width: 1100px;
+            animation: fadeInScale 1.4s ease-out;
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+        
+        .logo-top {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(5rem, 12vw, 10rem);
+            font-weight: 400;
+            color: var(--cream-light);
+            letter-spacing: 0.15em;
+            line-height: 1;
+            text-shadow: 
+                0 0 20px rgba(255, 107, 53, 0.6),
+                0 0 40px rgba(255, 107, 53, 0.4),
+                0 0 60px rgba(255, 107, 53, 0.3),
+                0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: neonGlow 2s ease-in-out infinite alternate;
+            display: block;
+            margin-bottom: -0.5rem;
+        }
+        
+        .logo-bottom {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--neon-orange);
+            letter-spacing: 0.05em;
+            text-shadow: 
+                0 0 15px rgba(255, 107, 53, 0.8),
+                0 4px 8px rgba(0, 0, 0, 0.4);
+            display: block;
+        }
+        
+        @keyframes neonGlow {
+            from { 
+                text-shadow: 
+                    0 0 20px rgba(255, 107, 53, 0.6),
+                    0 0 40px rgba(255, 107, 53, 0.4),
+                    0 0 60px rgba(255, 107, 53, 0.3),
+                    0 4px 10px rgba(0, 0, 0, 0.5);
+            }
+            to { 
+                text-shadow: 
+                    0 0 30px rgba(255, 107, 53, 0.8),
+                    0 0 60px rgba(255, 107, 53, 0.6),
+                    0 0 90px rgba(255, 107, 53, 0.4),
+                    0 4px 15px rgba(0, 0, 0, 0.5);
+            }
+        }
+        
+        .divider {
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-orange), var(--neon-pink), transparent);
+            margin: 2rem auto;
+            animation: fadeInUp 1.4s ease-out 0.3s backwards;
+        }
+        
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--coffee-light);
+            margin-bottom: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            animation: fadeInUp 1.4s ease-out 0.5s backwards;
+            line-height: 1.8;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.4s ease-out 0.7s backwards;
+        }
+        
+        .btn {
+            padding: 1.2rem 3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-orange), var(--neon-pink));
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(255, 107, 53, 0.7);
+        }
+        
+        .btn-secondary {
+            background: rgba(242, 232, 207, 0.1);
+            color: var(--cream-light);
+            border: 3px solid var(--neon-orange);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--neon-orange);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(255, 107, 53, 0.5);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--neon-orange);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 30px;
+        }
+        
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 400;
+            color: var(--coffee-dark);
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--coffee-medium);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream-light) 50%, var(--warm-white) 100%);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '☕';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            font-size: 15rem;
+            opacity: 0.03;
+            transform: rotate(-15deg);
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2.5rem;
+        }
+        
+        .about-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: var(--coffee-brown);
+            text-align: center;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, var(--coffee-dark), var(--deep-brown));
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(26, 14, 10, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--neon-orange), var(--neon-pink), var(--neon-yellow));
+        }
+        
+        .highlight-text {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--cream-light);
+            letter-spacing: 0.1em;
+            line-height: 1.3;
+        }
+        
+        .highlight-accent {
+            color: var(--neon-orange);
+            font-size: clamp(3rem, 7vw, 5rem);
+            display: block;
+            text-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+        }
+        
+        .highlight-subtext {
+            color: var(--coffee-light);
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+        
+        /* Services Section */
+        .services {
+            background: var(--warm-white);
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(26, 14, 10, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--neon-orange), var(--neon-pink));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.25);
+        }
+        
+        .service-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .service-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--coffee-dark);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .service-desc {
+            color: var(--coffee-medium);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        /* Menu Section */
+        .menu {
+            background: linear-gradient(180deg, var(--cream-light) 0%, var(--warm-white) 100%);
+            position: relative;
+        }
+        
+        .menu::after {
+            content: '🍕';
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            font-size: 12rem;
+            opacity: 0.03;
+            transform: rotate(15deg);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(26, 14, 10, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 0, 110, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        
+        .menu-item:hover::before {
+            opacity: 1;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+        }
+        
+        .menu-item-image {
+            height: 220px;
+            background: linear-gradient(135deg, #FFE5D9, #FFF0E5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+            animation: shimmer 4s infinite linear;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translate(-30%, -30%) rotate(0deg); }
+            100% { transform: translate(30%, 30%) rotate(360deg); }
+        }
+        
+        .menu-item-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .menu-item-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--coffee-dark);
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .menu-item-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--neon-orange), var(--neon-pink));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Reviews Section */
+        .reviews {
+            background: var(--coffee-dark);
+            color: var(--cream-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .reviews::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(201, 168, 106, 0.08) 0%, transparent 40%);
+        }
+        
+        .reviews .section-label {
+            background: rgba(255, 107, 53, 0.2);
+        }
+        
+        .reviews .section-title {
+            color: var(--cream-light);
+        }
+        
+        .reviews .section-subtitle {
+            color: var(--coffee-light);
+        }
+        
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .review-card {
+            background: rgba(242, 232, 207, 0.05);
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 8rem;
+            color: rgba(255, 107, 53, 0.2);
+            line-height: 1;
+        }
+        
+        .review-card:hover {
+            background: rgba(242, 232, 207, 0.1);
+            transform: translateY(-10px);
+            border-color: var(--neon-orange);
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.3);
+        }
+        
+        .stars {
+            color: var(--neon-orange);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 4px 10px rgba(255, 107, 53, 0.5));
+        }
+        
+        .review-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--cream);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .rating-summary {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(242, 232, 207, 0.05);
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .rating-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 6rem;
+            font-weight: 400;
+            color: var(--neon-orange);
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+            line-height: 1;
+        }
+        
+        .rating-divider {
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+        
+        .rating-text {
+            font-size: 1.3rem;
+            color: var(--coffee-light);
+            margin-top: 1rem;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Location Section */
+        .location {
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream-light) 100%);
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .location-info {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(26, 14, 10, 0.1);
+        }
+        
+        .info-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--cream);
+        }
+        
+        .info-item:last-of-type {
+            border-bottom: none;
+        }
+        
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--neon-orange), var(--neon-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .info-label {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--coffee-dark);
+            letter-spacing: 0.05em;
+        }
+        
+        .info-value {
+            font-size: 1.15rem;
+            color: var(--coffee-medium);
+            line-height: 1.8;
+            margin-left: 76px;
+        }
+        
+        .info-value a {
+            color: var(--neon-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .info-value a:hover {
+            color: var(--neon-pink);
+        }
+        
+        .map-container {
+            background: linear-gradient(135deg, var(--cream), #E8D5B7);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(26, 14, 10, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            text-align: center;
+            padding: 4rem;
+        }
+        
+        .map-placeholder-icon {
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.6;
+        }
+        
+        .map-placeholder-text {
+            color: var(--coffee-brown);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--coffee-dark);
+            color: var(--cream-light);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-orange), var(--neon-pink), var(--neon-yellow), var(--neon-orange));
+            background-size: 200% 100%;
+            animation: gradientShift 3s linear infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+        
+        .footer-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            color: var(--neon-orange);
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: rgba(242, 232, 207, 0.1);
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream-light);
+            font-size: 1.8rem;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--neon-orange);
+            border-color: var(--neon-orange);
+            transform: translateY(-8px) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+        }
+        
+        .footer-text {
+            font-size: 1rem;
+            color: var(--coffee-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-tagline {
+            font-size: 0.9rem;
+            color: var(--coffee-medium);
+            font-style: italic;
+        }
+        
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero {
+                min-height: 90vh;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .services-grid,
+            .menu-grid,
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-value {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        /* Performance */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Navigation -->
+    <nav class="floating-nav" id="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">PAZZ</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-decoration"></div>
+        <div class="hero-decoration"></div>
+        <div class="hero-content">
+            <div class="logo-container">
+                <span class="logo-top">PAZZ</span>
+                <span class="logo-bottom">The Cafe</span>
+            </div>
+            <div class="divider"></div>
+            <p class="tagline">Best Place to Enjoy<br>Food • Music • Vibes</p>
+            <div class="cta-buttons">
+                <a href="#menu" class="btn btn-primary"><span>View Menu</span></a>
+                <a href="#location" class="btn btn-secondary"><span>Get Directions</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Our Story</span>
+                <h2 class="section-title">WELCOME TO PAZZ</h2>
+                <p class="section-subtitle">Where Every Hour is Happy Hour</p>
+            </div>
+            <div class="about-content">
+                <p class="about-text fade-in">
+                    Nestled in the heart of Ahmedabad, Pazz The Cafe is more than just a place to grab a bite—it's an experience. 
+                    We've created a warm, inviting space where friends gather, conversations flow, and memories are made under 
+                    the perfect ambiance of great music and unbeatable vibes.
+                </p>
+                <div class="highlight-box fade-in">
+                    <p class="highlight-text">
+                        <span class="highlight-accent">OPEN TILL 4:00 AM</span>
+                        Your Perfect Late-Night Hangout
+                    </p>
+                    <p class="highlight-subtext">Midnight Cravings? We've Got You Covered!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">How We Serve</span>
+                <h2 class="section-title">ENJOY OUR WAY</h2>
+                <p class="section-subtitle">Multiple convenient options to satisfy your cravings</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">☕</div>
+                    <h3 class="service-title">DINE-IN</h3>
+                    <p class="service-desc">Experience our cozy ambiance with friends and family in a comfortable setting</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🚗</div>
+                    <h3 class="service-title">DRIVE-THROUGH</h3>
+                    <p class="service-desc">Quick and convenient service for those always on the move</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🛵</div>
+                    <h3 class="service-title">DELIVERY</h3>
+                    <p class="service-desc">Enjoy our delicious menu from the comfort of your home</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📦</div>
+                    <h3 class="service-title">ORDER ONLINE</h3>
+                    <p class="service-desc">Browse and order seamlessly through our digital platforms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Menu Highlights</span>
+                <h2 class="section-title">POPULAR FAVORITES</h2>
+                <p class="section-subtitle">Handpicked items that our customers absolutely love</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">🍓</div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Strawberry Shake</h3>
+                        <span class="menu-item-tag">Refreshing</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">🍟</div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Peri Peri Fries</h3>
+                        <span class="menu-item-tag">Spicy & Crispy</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">🥪</div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Mexican Sandwich</h3>
+                        <span class="menu-item-tag">Chef's Special</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">🍕</div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Tandoori Paneer Pizza</h3>
+                        <span class="menu-item-tag">Best Seller</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">🥔</div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">French Fries</h3>
+                        <span class="menu-item-tag">Classic</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">🧊</div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Ice Tea</h3>
+                        <span class="menu-item-tag">Cooling</span>
+                    </div>
+                </div>
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">🫖</div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Mother's Masala Tea</h3>
+                        <span class="menu-item-tag">Traditional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">WHAT PEOPLE SAY</h2>
+                <p class="section-subtitle">Real experiences from our valued customers</p>
+            </div>
+            <div class="reviews-container">
+                <div class="review-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">Great ambiance with good music and vibe! The perfect spot to unwind with friends late at night.</p>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">Good food and friendly staff. The Tandoori Paneer Pizza is absolutely delicious!</p>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <p class="review-text">Love the late-night hours! Finally, a place that stays open when you need it most.</p>
+                </div>
+            </div>
+            <div class="rating-summary fade-in">
+                <div class="rating-number">4.3<span class="rating-divider">/</span>5</div>
+                <p class="rating-text">Based on 163 Customer Reviews</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-label">Visit Us</span>
+                <h2 class="section-title">FIND US</h2>
+                <p class="section-subtitle">Come experience the Pazz difference today</p>
+            </div>
+            <div class="location-grid">
+                <div class="location-info fade-in-left">
+                    <div class="info-item">
+                        <div class="info-header">
+                            <div class="info-icon">📍</div>
+                            <div class="info-label">ADDRESS</div>
+                        </div>
+                        <div class="info-value">
+                            YMCA Cross Road, Corporate Road,<br>
+                            Sarkhej-Gandhinagar Highway,<br>
+                            Ahmedabad, Gujarat 380015
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-header">
+                            <div class="info-icon">📞</div>
+                            <div class="info-label">PHONE</div>
+                        </div>
+                        <div class="info-value">
+                            <a href="tel:+916358044879">063580 44879</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-header">
+                            <div class="info-icon">🕐</div>
+                            <div class="info-label">HOURS</div>
+                        </div>
+                        <div class="info-value">
+                            Open Till 4:00 AM<br>
+                            Every Single Day
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Pazz+The+Cafe+YMCA+Cross+Road+Ahmedabad" 
+                       target="_blank" 
+                       class="btn btn-primary" 
+                       style="margin-top: 2rem; display: inline-block;">
+                        <span>Open Google Maps</span>
+                    </a>
+                </div>
+                <div class="map-container fade-in-right">
+                    <div class="map-placeholder">
+                        <div class="map-placeholder-icon">🗺️</div>
+                        <p class="map-placeholder-text">
+                            Click the button to view our<br>exact location on Google Maps
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">PAZZ THE CAFE</div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/pazzthecafe" target="_blank" class="social-link" aria-label="Instagram">📷</a>
+                <a href="https://wa.me/916358044879" target="_blank" class="social-link" aria-label="WhatsApp">💬</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Pazz+The+Cafe+YMCA+Cross+Road+Ahmedabad" target="_blank" class="social-link" aria-label="Google Maps">📍</a>
+            </div>
+            <p class="footer-text">&copy; 2026 Pazz The Cafe. All Rights Reserved.</p>
+            <p class="footer-tagline">Designed for Local Business Growth</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Floating Navigation
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
